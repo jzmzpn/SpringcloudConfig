@@ -1,0 +1,41 @@
+
+
+spring:
+    datasource:
+        name: dataSource
+
+        url: jdbc:mysql://localhost:3306/roncoo_mini_pay_dev?useUnicode=true&amp;characterEncoding=UTF8
+        username: root
+        password: 123456
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+
+    
+
+    mvc:
+        view:
+          prefix: /WEB-INF/
+          suffix: .jsp
+    
+
+mybatis:
+    mapper-locations: classpath:mybatis/mapper/*/*.xml
+
+        
+logging:
+    level:
+      root: WARN
+      com:
+        lantaiyuan:
+          ebus:
+            mapper: TRACE
+            
+server:
+  port: 8075
+  context-path: /boss
+  
+  
+
+
+
+
