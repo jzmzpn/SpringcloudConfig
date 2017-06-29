@@ -27,10 +27,6 @@ logging:
         lantaiyuan:
           ebus:
             mapper: TRACE
-            
-server:
-  port: 8075
-  context-path: /boss
   
   
 
