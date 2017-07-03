@@ -1,0 +1,217 @@
+#通用配置
+spring.datasource.name=dataSource
+spring.datasource.url=jdbc:mysql://localhost:3306/roncoo_mini_pay_dev?useUnicode=true&amp;characterEncoding=UTF8
+spring.datasource.username=root
+spring.datasource.password=123456
+spring.datasource.type=com.alibaba.druid.pool.DruidDataSource
+spring.datasource.driver-class-name=com.mysql.jdbc.Driver
+spring.mvc.view.prefix=/WEB-INF/
+spring.mvc.view.suffix=.jsp
+
+mybatis.mapper-locations=classpath:mybatis/mapper/*/*.xml
+
+
+####################################### pay start ##########################################
+#商户支付KEY
+payKey=8bb02b7f6db943f68d5f9297e6201265
+#商户密钥
+#paySecret=f3943615e26c4581933b420f82787592
+#支付服务器地址
+gateway.address.ip=192.168.31.158
+gateway.address.port=8074
+#扫码支付请求地址
+gateway.scanPayUrl=/gateway/scanPay/initPay
+#条码支付请求地址
+gateway.f2fPayUrl=/gateway/f2fPay/doPay
+#威付通微信公众号支付请求地址
+gateway.wxoaPayUrl=/gateway/wxoaPay/order
+#支付结果后台通知地址
+notifyUrl=/gateway/wxoaPay/notify
+#支付结果页面通知地址
+returnUrl=/pay/roncooPay/success
+#订单过期时间(单位:分钟)
+orderPeriod=5
+#下单IP
+orderIp=192.168.28.158
+#支付pay项目对应的ip
+pay.address.ip=192.168.31.158
+#支付pay项目对应的商品
+pay.address.port=8078
+####################################### pay end ##########################################
+
+####################################### service start ##########################################
+#appId
+appId=wx4f4b4af4c32f8d45
+
+#å¾®ä¿¡æ¯ä»åæ·å·
+#mch_id=101550021428
+mch_id=101550021428
+
+#å¾®ä¿¡æ¯ä»
+partnerKey=67a6516d5ea32be0d81e9436bda1576f
+
+#é¢æ¯ä»è®¢åè¯·æ±å°åï¼ç»ä¸ä¸å
+prepay_url=https\://api.mch.weixin.qq.com/pay/unifiedorder
+
+#å¨ä»éé¢æ¯ä»è®¢åè¯·æ±å°å
+wft_prepay_url=https://pay.swiftpass.cn/pay/gateway
+
+#å¨ä»éé¢æ¯ä»è®¢åè¯·æ±å°å
+tfb_prepay_url=http://apitest.tfb8.com/cgi-bin/v2.0/api_wx_pay_apply.cgi
+
+#å¨ä»éé¢æ¯ä»è®¢åè¯·æ±å°å
+kykd_prepay_url=http://demo2.novaszco.com/gate/com/index
+
+#æ¯ä»éç¥å°å
+notify_url=http://localhost:8074/gateway/wxoaPay/notify
+
+#åå°è®¢åæ¥è¯¢å°å
+order_query_url=http://localhost:8082/gateway/scanPay/orderQuery
+
+#æå¡å¨Ip
+serviceIp=49.213.13.162
+
+#å¯¹è´¦åä¸è½½å°å
+download_bill_url= https\://api.mch.weixin.qq.com/pay/downloadbill
+
+#å¯¹è´¦åç±»å
+bill_type=SUCCESS
+
+#æ¯ä»è´¹ç
+pay_rate=0.6
+
+#å¾®ä¿¡æ¯ä»ç±»å
+pay.weixin.way.jspay=pay.weixin.jspay
+pay.weixin.way.native=pay.weixin.native
+####################################### service end ##########################################
+
+####################################### service account_config.properties start ##########################################
+#sett_min_amount
+sett_min_amount=0
+
+#sett_max_amount
+sett_max_amount=50000
+####################################### service account_config.properties end ##########################################
+
+####################################### service alipay_config.properties start ##########################################
+
+#################################################  支付宝分页查询账单配置  #####################################################
+
+#合作身份者ID，签约账号，以2088开头由16位纯数字组成的字符串，查看地址：https://b.alipay.com/order/pidAndKey.htm
+partner=11111111111
+
+#MD5密钥，安全检验码，由数字和字母组成的32位字符串，查看地址：https://b.alipay.com/order/pidAndKey.htm
+key=22222222222222
+
+#支付宝提供给商户的服务接入网关URL(新)
+alipay_gateway_new=https\://mapi.alipay.com/gateway.do?
+
+#签名方式
+sign_type=MD5
+
+#调试用，创建TXT日志文件夹路径，见AlipayCore.java类中的logResult(String sWord)打印方法。
+log_path=C\:\\
+
+#字符编码格式 目前支持 gbk 或 utf-8
+input_charset=utf-8
+
+#收款支付宝账号，以2088开头由16位纯数字组成的字符串，一般情况下收款账号就是签约账号
+seller_id=11111111111
+
+#支付宝消息验证地址
+https_verify_url=https\://mapi.alipay.com/gateway.do?service\=notify_verify&
+
+#服务器异步通知页面路径  需http://格式的完整路径，不能加?id=123这类自定义参数，必须外网可以正常访问
+notify_url=http://roncoo.iok.la/roncoo-pay-web-gateway/scanPayNotify/notify/ALIPAY
+
+#页面跳转同步通知页面路径 需http://格式的完整路径，不能加?id=123这类自定义参数，必须外网可以正常访问
+return_url=http://roncoo.iok.la/roncoo-pay-web-gateway/scanPayNotify/result/ALIPAY
+
+#支付类型 ，无需修改
+payment_type=1
+
+#调用的接口名，无需修改
+service=create_direct_pay_by_user
+
+
+####################################### service alipay_config.properties end ##########################################
+
+####################################### service reconciliation_config.properties start ##########################################
+#对账文件存储地址
+dir = /home/roncoo/app/accountcheck/billfile/
+####################################### service reconciliation_config.properties end ##########################################
+
+####################################### service weixinpay_config.properties start ##########################################
+#appId
+appId=wx4f4b4af4c32f8d45
+
+#微信支付商户号
+#mch_id=101550021428
+mch_id=101550021428
+
+#微信支付
+partnerKey=67a6516d5ea32be0d81e9436bda1576f
+
+#预支付订单请求地址，统一下单
+prepay_url=https\://api.mch.weixin.qq.com/pay/unifiedorder
+
+#威付通预支付订单请求地址
+wft_prepay_url=https://pay.swiftpass.cn/pay/gateway
+
+#威付通预支付订单请求地址
+tfb_prepay_url=http://apitest.tfb8.com/cgi-bin/v2.0/api_wx_pay_apply.cgi
+
+#威付通预支付订单请求地址
+kykd_prepay_url=http://demo2.novaszco.com/gate/com/index
+
+#支付通知地址
+notify_url=http://localhost:8082/gateway/scanPayNotify/notify/WEIXIN
+
+#后台订单查询地址
+order_query_url=http://localhost:8082/gateway/scanPay/orderQuery
+
+#服务器Ip
+serviceIp=49.213.13.162
+
+#对账单下载地址
+download_bill_url= https\://api.mch.weixin.qq.com/pay/downloadbill
+
+#对账单类型
+bill_type=SUCCESS
+
+#支付费率
+pay_rate=0.6
+
+#微信支付类型
+pay.weixin.way.jspay=pay.weixin.jspay
+pay.weixin.way.native=pay.weixin.native
+####################################### service weixinpay_config.properties end ##########################################
+
+####################################### service zfbinfo_config.properties start ##########################################
+# 支付宝网关名、partnerId和appId
+open_api_domain = https://openapi.alipaydev.com/gateway.do
+mcloud_api_domain = http://mcloudmonitor.com/gateway.do
+pid = 1111
+appid = 22222
+
+# RSA私钥、公钥和支付宝公钥
+private_key = 此处请填写你的商户私钥且转PKCS8格式此处请填写你的商户私钥且转PKCS8格式
+
+public_key = 此处请填写你的商户公钥此处请填写你的商户公钥
+
+alipay_public_key =
+
+
+#########################跟微信条码支付合并,统一处理##########################
+# 当面付最大查询次数和查询间隔（毫秒）
+max_query_retry = 5
+query_duration = 5000
+
+# 当面付最大撤销次数和撤销间隔（毫秒）
+max_cancel_retry = 3
+cancel_duration = 2000
+
+# 交易保障线程第一次调度延迟和调度间隔（秒）
+heartbeat_delay = 5
+heartbeat_duration = 900
+####################################### service zfbinfo_config.properties end ##########################################
