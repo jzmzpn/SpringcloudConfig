@@ -59,7 +59,7 @@ zuul:
   routes:
     balance:
       path: /balance/**
-      service-id: cpcs-balance
+      service-id: cpcr-balance
     boss:
       path:  /boss/**
       service-id: cpcr-boss
